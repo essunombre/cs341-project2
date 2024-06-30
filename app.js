@@ -4,8 +4,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
-  res.send("hello");
+  res.send("Hello World");
 });
+
+app.get('/jose', (req, res) =>{
+    res.send("Jose David Albancando Robles")
+})
 
 // Here I am making it to be listen
 app.listen(port);

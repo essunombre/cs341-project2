@@ -1,0 +1,31 @@
+{
+  "name": "jose-web-service",
+  "version": "1.0.0",
+  "description": "project for web services class",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/essunombre/cs341-project2.git"
+  },
+  "author": "Jose David Albancando Robles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/essunombre/cs341-project2/issues"
+  },
+  "homepage": "https://github.com/essunombre/cs341-project2#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "datenv": "^0.0.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.8.0",
+    "swagger-autogen": "^2.23.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

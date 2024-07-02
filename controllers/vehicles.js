@@ -4,10 +4,10 @@ const mongodb = require("../data/database");
 const {ObjectId} = require("mongodb");
 
 const getAll = async (req, res) => {
-  const result = await mongodb.getDatabase().db().collection('users').find();
-  result.toArray().then((users) =>{
+  const result = await mongodb.getDatabase().db().collection('vehicles').find();
+  result.toArray().then((vehicles) =>{
     res.setHeader("Content-type", "application/json");
-    res.status(200).json(users);
+    res.status(200).json(vehicles);
   })
 };
 
@@ -21,7 +21,7 @@ const getById = async (req, res) => {
     const result = await mongodb
       .getDatabase()
       .db()
-      .collection("users")
+      .collection("vehicles")
       .findOne({ _id: userId });
 
     if (result) {

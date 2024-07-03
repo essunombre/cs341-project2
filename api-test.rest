@@ -63,7 +63,7 @@ PUT http://localhost:3000/vehicles/6684c9d53b12dfbe46494790
 Content-Type: application/json
 
 {
-    "make": "Victor",
+    "make": "Victora",
     "model": "Panther 150",
     "color": "Green",
     "year": "2025"

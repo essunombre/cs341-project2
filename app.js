@@ -8,10 +8,12 @@
 
 // g9sxQikwm5TAYpdM esnuestronombre
 
+
 const express = require("express");
 const app = express();
 const mongodb = require("./data/database");
 const mainRouter = require("./routes/index")
+const bodyParser = require('body-parser') 
 
 const port = process.env.PORT || 3000;
 
@@ -23,6 +25,7 @@ const port = process.env.PORT || 3000;
 //   res.send("Jose David Albancando Robles");
 // });
 
+app.use(bodyParser.json())
 app.use("/", mainRouter.router);
 
 mongodb.initDb((error) => {

@@ -1,0 +1,74 @@
+### Get All Users
+GET http://localhost:3000/users
+Content-Type: application/json
+
+### Get Single User
+GET http://localhost:3000/users/6683784e78b9de82fe361033
+
+### Create a New User
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "firstName": "Test",
+    "lastName": "Albancando Robles",
+    "email": "test@gmail.com",
+    "dateOfBirth": "09-09-1996",
+    "gender": "male",
+    "phoneNumber": "000000000",
+    "licenseNumber": "11111111",
+    "vehicleId": "668362d07fc9dd932a8c6c00"
+}
+
+### Update Contact
+PUT http://localhost:3000/users/6684c9173b12dfbe4649478f
+Content-Type: application/json
+
+{
+    "firstName": "James David",
+    "lastName": "Albancando Robles",
+    "email": "esnuestronombre@gmail.comm",
+    "dateOfBirth": "09-09-1996",
+    "gender": "male",
+    "phoneNumber": "3212517307",
+    "licenseNumber": "09091996",
+    "vehicleId": "668361947fc9dd932a8c6bfc"
+}
+
+### Delete User
+DELETE http://localhost:3000/users/6684c9173b12dfbe4649478f
+Content-Type: application/json
+
+
+### Get All Vehicles
+GET http://localhost:3000/vehicles
+Content-Type: application/json
+
+### Get Single Vehicle
+GET http://localhost:3000/vehicles/668362f17fc9dd932a8c6c02
+
+### Create a New Vehicle
+POST http://localhost:3000/vehicles
+Content-Type: application/json
+
+{
+    "make": "Tesla",
+    "model": "y",
+    "color": "gold",
+    "year": "2022"
+}
+
+### Update Vehicle
+PUT http://localhost:3000/vehicles/6684c9d53b12dfbe46494790
+Content-Type: application/json
+
+{
+    "make": "Victor",
+    "model": "Panther 150",
+    "color": "Green",
+    "year": "2025"
+}
+
+### Delete Vehicle
+DELETE http://localhost:3000/vehicles/6684c9d53b12dfbe46494790
+Content-Type: application/json

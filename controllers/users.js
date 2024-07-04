@@ -4,6 +4,7 @@ const mongodb = require("../data/database");
 const { ObjectId } = require("mongodb");
 
 const getAll = async (req, res) => {
+  //#swagger.tags=['Users']
   const result = await mongodb.getDatabase().db().collection("users").find();
   result.toArray().then((users) => {
     res.setHeader("Content-type", "application/json");
@@ -12,6 +13,7 @@ const getAll = async (req, res) => {
 };
 
 const getById = async (req, res) => {
+  //#swagger.tags=['Users']
   // res.send("I will be the get Id: " + req.params.id);
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid userId to find a user.");
@@ -36,6 +38,7 @@ const getById = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+  //#swagger.tags=['Users']
   const user = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -61,7 +64,7 @@ const createUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  //#swagger.tags=['Contacts']
+  //#swagger.tags=['Users']
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid User id to find a User.");
   }
@@ -91,6 +94,7 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
+  //#swagger.tags=['Users']
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid userId to find a user.");
   }

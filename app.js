@@ -5,15 +5,16 @@
 // 5 I create a data folder for the DB, with the connecion on env file, project, we have a connection (db name on the connection string)
 // 6 I made sure to have all routes on the index, not here, here I call the router.
 // 7 I make sure I add the variable env on render.
-
+// 8 I add the allow cross origin
+// 9 se swagger file fo iunstructions
+// 
 // g9sxQikwm5TAYpdM esnuestronombre
-
 
 const express = require("express");
 const app = express();
 const mongodb = require("./data/database");
-const mainRouter = require("./routes/index")
-const bodyParser = require('body-parser') 
+const mainRouter = require("./routes/index");
+const bodyParser = require("body-parser");
 
 const port = process.env.PORT || 3000;
 
@@ -25,14 +26,28 @@ const port = process.env.PORT || 3000;
 //   res.send("Jose David Albancando Robles");
 // });
 
-app.use(bodyParser.json())
+app
+  .use(bodyParser.json())
+  // routes will work across sites
+  .use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Origin, x-Requested-With, Content-Type, Accept, Z-Key"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET, POST, PUT, DELETE, OPTIONS"
+    );
+    next();
+  });
+
 app.use("/", mainRouter.router);
 
 mongodb.initDb((error) => {
   if (error) {
     console.log(error);
-  }
-  else{
+  } else {
     console.log("DataBase Running at port: " + port);
   }
 });

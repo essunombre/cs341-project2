@@ -3,8 +3,8 @@ const mongodb = require("../data/database");
 // unique id, the primaryKey
 const { ObjectId } = require("mongodb");
 
-
 const getAll = async (req, res) => {
+  //#swagger.tags=['Vehicles']
   const result = await mongodb.getDatabase().db().collection("vehicles").find();
   result.toArray().then((vehicles) => {
     res.setHeader("Content-type", "application/json");
@@ -13,6 +13,7 @@ const getAll = async (req, res) => {
 };
 
 const getById = async (req, res) => {
+  //#swagger.tags=['Vehicles']
   // res.send("I will be the get Id: " + req.params.id);
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid vehicleId to find a vehicle.");
@@ -37,6 +38,7 @@ const getById = async (req, res) => {
 };
 
 const createVehicle = async (req, res) => {
+  //#swagger.tags=['Vehicles']
   const vehicle = {
     make: req.body.make,
     model: req.body.model,
@@ -60,7 +62,7 @@ const createVehicle = async (req, res) => {
 };
 
 const updateVehicle = async (req, res) => {
-  //#swagger.tags=['Contacts']
+  //#swagger.tags=['Vehicles']
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid vehicleId to find a Vehicle.");
   }
@@ -86,6 +88,7 @@ const updateVehicle = async (req, res) => {
 };
 
 const deleteVehicle = async (req, res) => {
+  //#swagger.tags=['Vehicles']
   if (!ObjectId.isValid(req.params.id)) {
     res.status(400).json("Must use a valid vehicleId to find a vehicle.");
   }

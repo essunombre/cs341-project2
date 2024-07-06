@@ -14,6 +14,13 @@
 //   "https"
 // ],
 
+
+// "host": "cs341-project2.onrender.com",
+// "basePath": "/",
+// "schemes": [
+//   "https"
+// ],
+
 const swaggerAutogen = require("swagger-autogen");
 const doc = {
   info: {

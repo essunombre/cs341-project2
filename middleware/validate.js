@@ -29,7 +29,7 @@ const saveVehicle = (req, res, next) => {
     make: "required|string",
     model: "required|string",
     color: "required|string",
-    year: "required",
+    year: "required|min:2000|max:2025",
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {

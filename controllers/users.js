@@ -1,4 +1,5 @@
 // Db connection
+const { response } = require("express");
 const mongodb = require("../data/database");
 // unique id, the primaryKey
 const { ObjectId } = require("mongodb");
@@ -114,6 +115,23 @@ const deleteUser = async (req, res) => {
   } catch (e) {
     res.status(500).json(e.toString()); // Handle any errors
   }
+};
+const deleteUser2 = async (req, res) => {
+  //#swagger.tags=['Users']
+  const userId = new ObjectId(req.params.id);
+  const result = await mongodb
+    .getDatabase()
+    .db()
+    .collection("users")
+    .deleteOne({ _id: userId }, true);
+  console.log(result);
+  if (result.deletedCount > 0) {
+    res.status(204).send(); // User successfully deleted
+  } else {
+    res
+      .status(500)
+      .json(result.error || "Some error occurred while deleting the user");
+  } 
 };
 
 module.exports = {

@@ -7,7 +7,7 @@
 // 7 I make sure I add the variable env on render.
 // 8 I add the allow cross origin
 // 9 se swagger file fo iunstructions
-// 
+// 10 I add the uncaught exception
 // g9sxQikwm5TAYpdM esnuestronombre
 
 const express = require("express");
@@ -43,6 +43,14 @@ app
   });
 
 app.use("/", mainRouter.router);
+
+// Exceptions to handle errors in my code, program wont stop but it continure running, like a catch all on a log
+process.on("uncaughtException", (err, origin) => {
+  console.log(
+    process.stderr.fd,
+    `Caught exception: ${err}\n` + `Exception origin: ${origin}`
+  );
+});
 
 mongodb.initDb((error) => {
   if (error) {

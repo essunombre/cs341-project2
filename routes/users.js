@@ -3,7 +3,9 @@ const router = express.Router();
 const userController = require("../controllers/users");
 const validation = require('../middleware/validate')
 
-router.get("/", userController.getAll);
+const { isAuthenticated } = require('../middleware/authenticate')
+
+router.get("/", isAuthenticated, userController.getAll);
 
 router.get("/:id", userController.getById);
 // Create

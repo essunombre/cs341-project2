@@ -15,7 +15,7 @@ router.use("/vehicles", vehicleRouter);
 router.use("/users", userRouter);
 
 // adding the login route
-router.get('/login', loginRouter);
-router.get('/logout', logoutRouter);
+router.use('/login', loginRouter);
+router.use('/logout', logoutRouter);
 
 module.exports = router;

@@ -5,14 +5,14 @@ const validation = require('../middleware/validate')
 
 const { isAuthenticated } = require('../middleware/authenticate')
 
-router.get("/", isAuthenticated, userController.getAll);
+router.get("/", userController.getAll);
 
-router.get("/:id", userController.getById);
+router.get("/:id", isAuthenticated, userController.getById);
 // Create
-router.post("/", validation.saveUser, userController.createUser);
+router.post("/", isAuthenticated, validation.saveUser, userController.createUser);
 // Update
-router.put("/:id", validation.saveUser, userController.updateUser);
+router.put("/:id", isAuthenticated, validation.saveUser, userController.updateUser);
 // Delete
-router.delete("/:id", userController.deleteUser)
+router.delete("/:id", isAuthenticated, userController.deleteUser)
 
 module.exports = router;

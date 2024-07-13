@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const vehicleRouter = require("./vehicles");
 const userRouter = require("./users");
+const loginRouter = require("./login")
+const logoutRouter = require("./logout")
 const passport = require("passport");
 
 router.use("/", require("./swagger"));
@@ -13,12 +15,7 @@ router.use("/vehicles", vehicleRouter);
 router.use("/users", userRouter);
 
 // adding the login route
-router.get('/login', passport.authenticate('github'), (req, res) => {});
-router.get('/logout', function(req, res, next){
-  req.logout(function(err) {
-    if(err) {return next(err);}
-    res.redirect('/');
-  });
-});
+router.get('/login', loginRouter);
+router.get('/logout', logoutRouter);
 
 module.exports = router;

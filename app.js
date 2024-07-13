@@ -23,6 +23,7 @@
 // 19 add the 2 endpoints of the session
 // 20 add the middleware on autheticate to validate if there is a sesssion
 //21 create routes for autehtication in routes index.
+//  22 when deplooyoing I need to make sure the variables are updated and the 0auth is updated on github
 
 
 const express = require("express");

@@ -21,6 +21,10 @@
 //   "https"
 // ],
 
+
+//CALLBACK_URL = http://localhost:3000/github/callback 
+//CALLBACK_URL = https://cs341-project2.onrender.com/github/callback 
+
 const swaggerAutogen = require("swagger-autogen");
 const doc = {
   info: {

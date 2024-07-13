@@ -1,5 +1,5 @@
 // 5:59
-
+// prerequisites: express --save, nodemon --save-dev, mongodb, dotenv?, body-parser, swagger-autogen, swagger-ui-express, validatorjs, passport, express-session, passport-github2, cors
 // 1 I created the express and I listened to a port
 // 2 I created routes
 // 3 I use 'use' to call those routes
